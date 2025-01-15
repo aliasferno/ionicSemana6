@@ -41,4 +41,28 @@
   <ion-button (click)="llamarModalDos()" expand="block" fill="clear" shape="round">
     Modal
   </ion-button>
+  <ion-button (click)="mostrarToast('Habla', 3000)" expand="block" fill="clear" shape="round">
+    Toast
+  </ion-button>
+  <ion-list>
+    <ion-list>
+      <ion-radio-group [(ngModel)] = "opciones" (ionChange) = "verificarRadio()">
+        <ion-list-header>
+          <ion-label>Auto Manufacturers</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Amigos</ion-label>
+          <ion-radio value="amigos" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Familia</ion-label>
+          <ion-radio value="familia" ></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Conocidos</ion-label>
+          <ion-radio value="conocidos" checked></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </ion-list>
 </ion-content>

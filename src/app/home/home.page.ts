@@ -3,6 +3,7 @@ import { NavController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { PaginadosPageModule } from '../paginados/paginados.module';
 import { PaginadosPage } from '../paginados/paginados.page';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,12 @@ import { PaginadosPage } from '../paginados/paginados.page';
 })
 export class HomePage {
   isModalOpen = false;
+  opciones:string = "";
   constructor(
     private navCtrl: NavController,
     private router: Router,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toastCtrl: ToastController
   ) {}
 
   irp2n(){
@@ -35,6 +38,22 @@ export class HomePage {
         component: PaginadosPage,
       });
       return await modal.present();
+  }
+
+  async mostrarToast(text:string, tiempo:number)
+  {
+    const toast = await this.toastCtrl.create({
+      message: text,
+      duration: tiempo,
+      position: 'top'
+    });
+
+    await toast.present();
+  }
+
+  verificarRadio()
+  {
+    this.mostrarToast(this.opciones, 3000);
   }
 
 }
