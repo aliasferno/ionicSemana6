@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'paginados',
+    loadChildren: () => import('./paginados/paginados.module').then( m => m.PaginadosPageModule)
+  },
 ];
 
 @NgModule({
